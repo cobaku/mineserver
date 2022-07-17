@@ -5,4 +5,8 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - /home/mine/casual:/home/server/world
+      - /home/minecraft/world/casual:/home/server/world
+      - type: bind
+        source: /home/minecraft/properties/casual/server.properties
+        target: /home/server/server.properties
+        read_only: false
