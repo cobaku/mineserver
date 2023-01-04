@@ -1,34 +1,65 @@
 version: "3.9"
 services:
-  minecraft:
-    build: .
+  minecraft_spigot:
+    build: ./spigot/
     ports:
-      - "25565:25565"
+        - "25565:25565"
     volumes:
-      - /home/server/world/casual:/home/server/world
-      - /home/server/logs/casual:/home/server/world
+      - ./storage/spigot/world/casual:/home/server/world
+      - ./storage/spigot/logs/casual:/home/server/world
       - type: bind
-        source: /home/server/properties/casual/server.properties
+        source: ./storage/spigot/properties/casual/server.properties
         target: /home/server/server.properties
         read_only: false
       - type: bind
-        source: /home/server/properties/casual/usercache.json
+        source: ./storage/spigot/properties/casual/usercache.json
         target: /home/server/usercache.json
         read_only: false
       - type: bind
-        source: /home/server/properties/casual/ops.json
+        source: ./storage/spigot/properties/casual/ops.json
         target: /home/server/ops.json
         read_only: false
       - type: bind
-        source: /home/server/properties/casual/banned-ips.json
+        source: ./storage/spigot/properties/casual/banned-ips.json
         target: /home/server/banned-ips.json
         read_only: false
       - type: bind
-        source: /home/server/properties/casual/banned-players.json
+        source: ./storage/spigot/properties/casual/banned-players.json
         target: /home/server/banned-players.json
         read_only: false
       - type: bind
-        source: /home/server/properties/casual/whitelist.json
+        source: ./storage/spigot/properties/casual/whitelist.json
         target: /home/server/whitelist.json
         read_only: false
-        
+
+  minecraft_vanilla:
+    build: ./vanilla/
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./storage/vanilla/world/casual:/home/server/world
+      - ./storage/vanilla/logs/casual:/home/server/world
+      - type: bind
+        source: ./storage/vanilla/properties/casual/server.properties
+        target: /home/server/server.properties
+        read_only: false
+      - type: bind
+        source: ./storage/vanilla/properties/casual/usercache.json
+        target: /home/server/usercache.json
+        read_only: false
+      - type: bind
+        source: ./storage/vanilla/properties/casual/ops.json
+        target: /home/server/ops.json
+        read_only: false
+      - type: bind
+        source: ./storage/vanilla/properties/casual/banned-ips.json
+        target: /home/server/banned-ips.json
+        read_only: false
+      - type: bind
+        source: ./storage/vanilla/properties/casual/banned-players.json
+        target: /home/server/banned-players.json
+        read_only: false
+      - type: bind
+        source: ./storage/vanilla/properties/casual/whitelist.json
+        target: /home/server/whitelist.json
+        read_only: false
