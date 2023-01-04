@@ -4,8 +4,8 @@
 
 Configuration files are located in the `storage` folder. All configuration files have default values so configure all the necessary properties at your discretion:
 
-`./storage/spigot` -- properties for the Spigot Minecraft server
-`./storage/vanilla` -- properties for Vanilla Minecraft server
+- `./storage/spigot` -- properties for the Spigot Minecraft server
+- `./storage/vanilla` -- properties for Vanilla Minecraft server
 
 How to run:
 
